@@ -30,6 +30,11 @@ Customization pack for [Icecast-kh](https://github.com/karlheyes/icecast-kh) 2.4
 
 - Enjoy!
 
+## Additional:
+
+- Logrotate and init.d scripts for Icecast-kh
+
+
 [![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
 
 [buymecoffee]: https://www.buymeacoffee.com/twelve

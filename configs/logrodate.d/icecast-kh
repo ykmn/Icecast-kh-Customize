@@ -1,0 +1,12 @@
+/var/log/icecast-kh/*.log {
+    daily
+    rotate 7
+    missingok
+    create 0640 icecast icecast
+    postrotate
+      if pgrep icecast > /dev/null; then
+         invoke-rc.d --quiet icecast-kh reload > /dev/null
+      fi
+    endscript
+    compress
+}
