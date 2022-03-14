@@ -14,7 +14,7 @@ Customization pack for [Icecast-kh](https://github.com/karlheyes/icecast-kh) 2.4
 
 ![Admin Home](preview/admin-home.png)
 
-- List Mountpoints page shows connected clients: IP-address is now Whois'able, time format HH:MM:SS instead of plain seconds.
+- List Mountpoints page shows connected clients: IP-address is now Whois'able, time format DD:HH:MM:SS instead of plain seconds.
 
 ![Admin Home](preview/admin-listclients.png)
 

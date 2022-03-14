@@ -70,7 +70,7 @@
 <table cellpadding="5" border="1" bordercolor="#C0C0C0" >
 		<thead>
 				<td ><center><b>IP</b></center></td>
-				<td ><center><b>Connected (h:m:s)</b></center></td>
+				<td ><center><b>Connected (d:h:m:s)</b></center></td>
 				<td ><center><b>Lag (bytes)</b></center></td>
 				<td ><center><b>User Agent</b></center></td>
 				<td ><center><b>Action</b></center></td>
@@ -82,18 +82,22 @@
 <xsl:variable name = "theIP" ><xsl:value-of select="IP" /></xsl:variable>
 		<tr>
                 <td align="center">
-			<a href="https://www.nic.ru/whois/?query={$theIP}" target="_blank">
+			<a href="https://www.whois.com/whois/{$theIP}" target="_blank">
 			<xsl:value-of select="IP" /></a>
 			<xsl:if test="username"> (<xsl:value-of select="username" />)</xsl:if></td>
 		<td align="center">
 			<xsl:variable name="seconds" ><xsl:value-of select="Connected" /></xsl:variable>    
-			<xsl:variable name="h" select="floor($seconds div 3600)"/>
+			<xsl:variable name="d" select="floor($seconds div 86400)"/>
+			<xsl:variable name="h" select="floor($seconds div 3600) mod 24"/>
 			<xsl:variable name="m" select="floor($seconds div 60) mod 60"/>
 			<xsl:variable name="s" select="$seconds mod 60"/>
-			<xsl:value-of select="format-number($h, '00')" />
-			<xsl:value-of select="format-number($m, ':00')" />
-			<xsl:value-of select="format-number($s, ':00')" />
+			<xsl:value-of select="format-number($d, '00d ')" />
+			<xsl:value-of select="format-number($h, '00h ')" />
+			<xsl:value-of select="format-number($m, '00m ')" />
+			<xsl:value-of select="format-number($s, '00s ')" />
+			<!-- (<xsl:value-of select="$seconds" /> sec) -->
 		</td>
+		<td align="center"><xsl:value-of select="lag" /></td>
 		<td align="center"><xsl:value-of select="lag" /></td>
 		<td align="center"><xsl:value-of select="UserAgent" /></td>
 		<td align="center"><a href="killclient.xsl?mount={$themount}&amp;id={@id}">Kick</a></td>
