@@ -80,7 +80,6 @@
 			<!-- (<xsl:value-of select="$seconds" /> sec) -->
 		</td>
 		<td align="center"><xsl:value-of select="lag" /></td>
-		<td align="center"><xsl:value-of select="lag" /></td>
 		<td align="center"><xsl:value-of select="UserAgent" /></td>
 		<td align="center"><a href="killclient.xsl?mount={$themount}&amp;id={@id}">Kick</a></td>
 		</tr>
